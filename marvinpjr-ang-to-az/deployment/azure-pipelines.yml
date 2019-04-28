@@ -3,17 +3,19 @@ variables:
 
 steps:
 - task: Npm@1
-  displayName: 'npm install'
+  displayName: 'npm install'  
   inputs:
     command: install    
+    workingDir: marvinpjr-ang-to-az
 
 - task: Npm@1
   displayName: 'build app'
   inputs:
     command: custom
     customCommand: run build -- --prod
+    workingDir: marvinpjr-ang-to-az
 
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'angular'
-    targetPath: 'dist'
+    targetPath: 'dist'  
